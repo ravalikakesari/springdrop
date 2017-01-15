@@ -1,4 +1,4 @@
-package me.farhan;
+package me.farhan.entities;
 
 
 import javax.persistence.*;
