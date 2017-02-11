@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+
+</head>
+<body>
+<!-- Header -->
+<div th:replace="fragments/header :: header"></div>
+<div class="container">
+    <div sec:authorize="isAuthenticated()">
+        <div sec:authorize="hasAnyAuthority('USER')">
+            <a th:href="@{/citizen/}" role="button" class="btn btn-primary">
+                নাগরিক সমূহ
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
