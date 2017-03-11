@@ -1,6 +1,6 @@
 package me.farhan.springdrop.validation;
 
-import me.farhan.springdrop.dto.UserDto;
+import me.farhan.springdrop.domain.dto.UserDto;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

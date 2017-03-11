@@ -1,10 +1,9 @@
 package me.farhan.springdrop.controllers;
 
-import me.farhan.springdrop.dto.UserDto;
-import me.farhan.springdrop.entities.User;
+import me.farhan.springdrop.domain.dto.UserDto;
+import me.farhan.springdrop.domain.entities.User;
 import me.farhan.springdrop.exception.EmailExistsException;
 import me.farhan.springdrop.services.UserService;
-import me.farhan.springdrop.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

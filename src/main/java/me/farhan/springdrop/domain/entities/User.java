@@ -1,28 +1,37 @@
-package me.farhan.springdrop.dto;
+package me.farhan.springdrop.domain.entities;
 
-import me.farhan.springdrop.validation.PasswordMatches;
-import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@PasswordMatches
-public class UserDto {
+@Entity
+@Table(name = "users",schema = "public")
+public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "email")
     @NotNull
-    @NotEmpty
+    private String email;
+
+    @Column(name = "full_name")
+    @NotNull
     private String fullName;
 
+    @Column(name = "password")
     @NotNull
-    @NotEmpty
     private String password;
 
-    @NotNull
-    @NotEmpty
-    private String matchingPassword;
+    public Long getId() {
+        return id;
+    }
 
-    @NotNull
-    @NotEmpty
-    private String email;
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getFullName() {
         return fullName;
@@ -40,14 +49,6 @@ public class UserDto {
         this.password = password;
     }
 
-    public String getMatchingPassword() {
-        return matchingPassword;
-    }
-
-    public void setMatchingPassword(String matchingPassword) {
-        this.matchingPassword = matchingPassword;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -55,4 +56,5 @@ public class UserDto {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }
