@@ -19,4 +19,9 @@ public class AssetsController {
         return "assets/index";
     }
 
+    @GetMapping("/new")
+    public String newAsset(Model model) {
+        return "assets/form";
+    }
+
 }

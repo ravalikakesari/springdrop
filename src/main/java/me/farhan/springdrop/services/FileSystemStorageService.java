@@ -18,7 +18,6 @@ import java.util.stream.Stream;
 @Service
 public class FileSystemStorageService implements StorageService {
 
-    @Value("#{root_path}")
     private Path rootLocation;
 
     @Override
