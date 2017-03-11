@@ -1,6 +1,6 @@
-package me.farhan.dto;
+package me.farhan.springdrop.dto;
 
-import me.farhan.validation.PasswordMatches;
+import me.farhan.springdrop.validation.PasswordMatches;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;

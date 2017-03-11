@@ -1,4 +1,4 @@
-package me.farhan.validation;
+package me.farhan.springdrop.validation;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

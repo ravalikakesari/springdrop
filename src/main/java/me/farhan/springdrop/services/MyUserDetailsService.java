@@ -1,7 +1,7 @@
-package me.farhan.services;
+package me.farhan.springdrop.services;
 
-import me.farhan.entities.User;
-import me.farhan.repositories.UserRepository;
+import me.farhan.springdrop.entities.User;
+import me.farhan.springdrop.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

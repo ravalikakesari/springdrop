@@ -1,6 +1,6 @@
-package me.farhan.repositories;
+package me.farhan.springdrop.repositories;
 
-import me.farhan.entities.User;
+import me.farhan.springdrop.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

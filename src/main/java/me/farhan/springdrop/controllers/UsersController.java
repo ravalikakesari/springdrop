@@ -1,12 +1,11 @@
-package me.farhan.controllers;
+package me.farhan.springdrop.controllers;
 
-import me.farhan.dto.UserDto;
-import me.farhan.entities.User;
-import me.farhan.exception.EmailExistsException;
-import me.farhan.services.UserService;
+import me.farhan.springdrop.dto.UserDto;
+import me.farhan.springdrop.entities.User;
+import me.farhan.springdrop.exception.EmailExistsException;
+import me.farhan.springdrop.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;

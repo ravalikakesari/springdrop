@@ -1,4 +1,4 @@
-package me.farhan.entities;
+package me.farhan.springdrop.entities;
 
 
 import javax.persistence.*;

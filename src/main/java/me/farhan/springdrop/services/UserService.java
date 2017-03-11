@@ -1,9 +1,9 @@
-package me.farhan.services;
+package me.farhan.springdrop.services;
 
-import me.farhan.dto.UserDto;
-import me.farhan.entities.User;
-import me.farhan.exception.EmailExistsException;
-import me.farhan.repositories.UserRepository;
+import me.farhan.springdrop.dto.UserDto;
+import me.farhan.springdrop.entities.User;
+import me.farhan.springdrop.exception.EmailExistsException;
+import me.farhan.springdrop.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
