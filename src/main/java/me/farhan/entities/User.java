@@ -3,6 +3,7 @@ package me.farhan.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name = "users",schema = "public")
@@ -21,6 +22,7 @@ public class User {
     @NotNull
     private String password;
 
+    private List<String> roles;
 
     public Long getId() {
         return id;
@@ -46,4 +48,19 @@ public class User {
         this.password = password;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
 }

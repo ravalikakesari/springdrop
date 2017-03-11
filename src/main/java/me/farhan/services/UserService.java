@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
+
 @Service
 public class UserService implements IUserService{
 
@@ -17,10 +19,22 @@ public class UserService implements IUserService{
     @Transactional
     @Override
     public User registerNewUserAccount(UserDto accountDto) throws EmailExistsException {
-        return null;
+        if (emailExist(accountDto.getEmail())) {
+            throw new EmailExistsException("There is an account with that email address:"+ accountDto.getEmail());
+        }
+        User user = new User();
+        user.setUsername(accountDto.getFullName());
+        user.setPassword(accountDto.getPassword());
+        user.setEmail(accountDto.getEmail());
+        user.setRoles(Arrays.asList("ROLE_USER"));
+        return userRepository.save(user);
     }
 
-    private boolean emailExists(final String email){
+    private boolean emailExist(final String email){
+        User user = userRepository.findByEmail(email);
+        if (user != null) {
+            return true;
+        }
         return false;
     }
 }
