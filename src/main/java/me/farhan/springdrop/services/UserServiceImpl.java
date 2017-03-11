@@ -5,6 +5,7 @@ import me.farhan.springdrop.domain.entities.User;
 import me.farhan.springdrop.exception.EmailExistsException;
 import me.farhan.springdrop.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,7 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserServiceImpl implements UserService{
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
     @Transactional
     @Override
@@ -22,7 +27,7 @@ public class UserServiceImpl implements UserService{
         }
         User user = new User();
         user.setFullName(accountDto.getFullName());
-        user.setPassword(accountDto.getPassword());
+        user.setPassword(bCryptPasswordEncoder.encode(accountDto.getPassword()));
         user.setEmail(accountDto.getEmail());
         return userRepository.save(user);
     }

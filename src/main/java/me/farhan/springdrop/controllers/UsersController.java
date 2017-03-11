@@ -48,7 +48,7 @@ public class UsersController {
             return new ModelAndView("registration", "user", accountDto);
         }
 
-        return new ModelAndView("successRegister", "user", accountDto);
+        return new ModelAndView("user/success_register", "user", accountDto);
     }
 
     private User createUserAccount(UserDto userDto,BindingResult bindingResult){
@@ -58,7 +58,6 @@ public class UsersController {
         }catch (EmailExistsException e){
 
         }
-
         return registered;
     }
 }
