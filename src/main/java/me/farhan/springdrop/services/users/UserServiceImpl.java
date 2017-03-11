@@ -1,4 +1,4 @@
-package me.farhan.springdrop.services;
+package me.farhan.springdrop.services.users;
 
 import me.farhan.springdrop.domain.dto.UserDto;
 import me.farhan.springdrop.domain.entities.User;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;

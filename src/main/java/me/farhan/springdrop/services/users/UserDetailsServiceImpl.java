@@ -1,4 +1,4 @@
-package me.farhan.springdrop.services;
+package me.farhan.springdrop.services.users;
 
 import me.farhan.springdrop.domain.entities.User;
 import me.farhan.springdrop.repositories.UserRepository;

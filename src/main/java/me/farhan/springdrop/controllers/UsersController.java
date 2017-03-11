@@ -3,7 +3,7 @@ package me.farhan.springdrop.controllers;
 import me.farhan.springdrop.domain.dto.UserDto;
 import me.farhan.springdrop.domain.entities.User;
 import me.farhan.springdrop.exception.EmailExistsException;
-import me.farhan.springdrop.services.UserService;
+import me.farhan.springdrop.services.users.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
