@@ -26,8 +26,6 @@ public class User {
     @NotNull
     private String password;
 
-    private List<String> roles;
-
     public Long getId() {
         return id;
     }
@@ -60,11 +58,4 @@ public class User {
         this.email = email;
     }
 
-    public List<String> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<String> roles) {
-        this.roles = roles;
-    }
 }

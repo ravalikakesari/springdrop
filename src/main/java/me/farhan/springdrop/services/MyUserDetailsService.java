@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -36,7 +37,7 @@ public class MyUserDetailsService implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User
                 (user.getEmail(), user.getPassword(), enabled, accountNonExpired,
                         credentialsNonExpired, accountNonLocked,
-                        getAuthorities(user.getRoles()));
+                        getAuthorities(Arrays.asList("ROLE_USER")));
     }
 
     private static List<GrantedAuthority> getAuthorities (List<String> roles) {
