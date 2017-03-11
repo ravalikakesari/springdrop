@@ -31,7 +31,7 @@
                     </ul>
                 </div>
 
-                <div sec:authorize="hasAnyAuthority('USER')">
+                <div sec:authorize="hasAnyAuthority('ROLE_USER')">
                     <ul class="nav navbar-nav navbar-left">
                         <li><a href="#" th:href="@{/citizen}">Citizen</a></li>
                         <li><a href="#" th:href="@{/trade_license}">Trade License</a></li>
