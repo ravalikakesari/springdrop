@@ -29,11 +29,11 @@ public class UsersController {
 
         UserDto userDto = new UserDto();
         model.addAttribute("user",userDto);
-        return "user/register";
+        return "users/register";
     }
 
     @RequestMapping(path = "/register",method = RequestMethod.POST)
-    public ModelAndView createUser(@ModelAttribute("user") @Valid UserDto accountDto,
+    public String createUser(@ModelAttribute("user") @Valid UserDto accountDto,
                                    BindingResult result, WebRequest request, Errors errors){
         User registered = new User();
         if (!result.hasErrors()){
@@ -45,10 +45,11 @@ public class UsersController {
         }
 
         if (result.hasErrors()) {
-            return new ModelAndView("registration", "user", accountDto);
+            //model.addAttribute("user",userDto);
+            return "users/register";
         }
 
-        return new ModelAndView("user/success_register", "user", accountDto);
+        return "redirect:/login";
     }
 
     private User createUserAccount(UserDto userDto,BindingResult bindingResult){
