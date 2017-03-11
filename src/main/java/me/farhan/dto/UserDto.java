@@ -1,9 +1,11 @@
 package me.farhan.dto;
 
+import me.farhan.validation.PasswordMatches;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 
+@PasswordMatches
 public class UserDto {
 
     @NotNull
