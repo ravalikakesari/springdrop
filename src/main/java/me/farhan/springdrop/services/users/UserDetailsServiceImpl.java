@@ -20,13 +20,13 @@ import java.util.List;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private  UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email);
-        if (user == null){
-            throw new UsernameNotFoundException("No user found with user : "+email);
+        if (user == null) {
+            throw new UsernameNotFoundException("No user found with user : " + email);
         }
 
         boolean enabled = true;
@@ -35,12 +35,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         boolean accountNonLocked = true;
 
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
-                        enabled, accountNonExpired,
-                        credentialsNonExpired, accountNonLocked,
-                        getAuthorities(Arrays.asList("ROLE_USER")));
+                enabled, accountNonExpired,
+                credentialsNonExpired, accountNonLocked,
+                getAuthorities(Arrays.asList("ROLE_USER")));
     }
 
-    private static List<GrantedAuthority> getAuthorities (List<String> roles) {
+    private static List<GrantedAuthority> getAuthorities(List<String> roles) {
         List<GrantedAuthority> authorities = new ArrayList<>();
         for (String role : roles) {
             authorities.add(new SimpleGrantedAuthority(role));

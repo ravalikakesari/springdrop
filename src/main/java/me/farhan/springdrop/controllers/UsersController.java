@@ -23,23 +23,23 @@ public class UsersController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(path = "/register",method = RequestMethod.GET)
-    public String newUser(Model model){
+    @RequestMapping(path = "/register", method = RequestMethod.GET)
+    public String newUser(Model model) {
 
         UserDto userDto = new UserDto();
-        model.addAttribute("user",userDto);
+        model.addAttribute("user", userDto);
         return "users/register";
     }
 
-    @RequestMapping(path = "/register",method = RequestMethod.POST)
+    @RequestMapping(path = "/register", method = RequestMethod.POST)
     public String createUser(@ModelAttribute("user") @Valid UserDto accountDto,
-                                   BindingResult result, WebRequest request, Errors errors){
+                             BindingResult result, WebRequest request, Errors errors) {
         User registered = new User();
-        if (!result.hasErrors()){
-            registered = createUserAccount(accountDto,result);
+        if (!result.hasErrors()) {
+            registered = createUserAccount(accountDto, result);
         }
 
-        if (registered == null){
+        if (registered == null) {
             result.rejectValue("email", "message.regError");
         }
 
@@ -51,11 +51,11 @@ public class UsersController {
         return "redirect:/login";
     }
 
-    private User createUserAccount(UserDto userDto,BindingResult bindingResult){
+    private User createUserAccount(UserDto userDto, BindingResult bindingResult) {
         User registered = null;
-        try{
+        try {
             registered = userService.registerNewUserAccount(userDto);
-        }catch (EmailExistsException e){
+        } catch (EmailExistsException e) {
 
         }
         return registered;
