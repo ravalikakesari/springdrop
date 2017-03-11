@@ -18,6 +18,10 @@ public class User {
     @NotNull
     private String email;
 
+    @Column(name = "full_name")
+    @NotNull
+    private String fullName;
+
     @Column(name = "password")
     @NotNull
     private String password;
@@ -32,12 +36,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return email;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setUsername(String username) {
-        this.email = username;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getPassword() {

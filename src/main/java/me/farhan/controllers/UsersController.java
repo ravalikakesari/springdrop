@@ -2,7 +2,11 @@ package me.farhan.controllers;
 
 import me.farhan.dto.UserDto;
 import me.farhan.entities.User;
+import me.farhan.exception.EmailExistsException;
+import me.farhan.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
@@ -18,6 +22,9 @@ import javax.validation.Valid;
 @RequestMapping(value = "users")
 public class UsersController {
 
+    @Autowired
+    private  UserService userService;
+
     @RequestMapping(path = "/register",method = RequestMethod.GET)
     public String newUser(Model model){
 
@@ -27,13 +34,32 @@ public class UsersController {
     }
 
     @RequestMapping(path = "/register",method = RequestMethod.POST)
-    public ModelAndView createUser(@ModelAttribute("user") @Valid UserDto user,
+    public ModelAndView createUser(@ModelAttribute("user") @Valid UserDto accountDto,
                                    BindingResult result, WebRequest request, Errors errors){
         User registered = new User();
         if (!result.hasErrors()){
+            registered = createUserAccount(accountDto,result);
+        }
+
+        if (registered == null){
+            result.rejectValue("email", "message.regError");
+        }
+
+        if (result.hasErrors()) {
+            return new ModelAndView("registration", "user", accountDto);
+        }
+
+        return new ModelAndView("successRegister", "user", accountDto);
+    }
+
+    private User createUserAccount(UserDto userDto,BindingResult bindingResult){
+        User registered = null;
+        try{
+            registered = userService.registerNewUserAccount(userDto);
+        }catch (EmailExistsException e){
 
         }
 
-        return null;
+        return registered;
     }
 }

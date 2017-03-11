@@ -23,7 +23,7 @@ public class UserService implements IUserService{
             throw new EmailExistsException("There is an account with that email address:"+ accountDto.getEmail());
         }
         User user = new User();
-        user.setUsername(accountDto.getFullName());
+        user.setFullName(accountDto.getFullName());
         user.setPassword(accountDto.getPassword());
         user.setEmail(accountDto.getEmail());
         user.setRoles(Arrays.asList("ROLE_USER"));
