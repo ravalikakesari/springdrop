@@ -4,6 +4,7 @@ import me.farhan.springdrop.dto.UserDto;
 import me.farhan.springdrop.entities.User;
 import me.farhan.springdrop.exception.EmailExistsException;
 import me.farhan.springdrop.services.UserService;
+import me.farhan.springdrop.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +23,7 @@ import javax.validation.Valid;
 public class UsersController {
 
     @Autowired
-    private  UserService userService;
+    private UserService userService;
 
     @RequestMapping(path = "/register",method = RequestMethod.GET)
     public String newUser(Model model){
