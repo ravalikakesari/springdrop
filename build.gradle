@@ -30,6 +30,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compileOnly "org.projectlombok:lombok:1.16.16"
 	compile("org.flywaydb:flyway-core")
 	runtime('org.postgresql:postgresql')
 	compile("org.webjars:jquery:2.2.1")

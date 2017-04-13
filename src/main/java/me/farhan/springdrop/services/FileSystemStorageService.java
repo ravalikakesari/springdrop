@@ -62,12 +62,10 @@ public class FileSystemStorageService implements StorageService {
         try {
             Path file = load(filename);
             Resource resource = new UrlResource(file.toUri());
-            if (resource.exists() || resource.isReadable()) {
+            if (resource.exists() || resource.isReadable())
                 return resource;
-            } else {
-                throw new StorageFileNotFoundException("Could not read file: " + filename);
 
-            }
+            throw new StorageFileNotFoundException("Could not read file: " + filename);
         } catch (MalformedURLException e) {
             throw new StorageFileNotFoundException("Could not read file: " + filename, e);
         }
@@ -76,6 +74,11 @@ public class FileSystemStorageService implements StorageService {
     @Override
     public void deleteAll() {
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
+    }
+
+    @Override
+    public void delete(String fileName) {
+
     }
 
 }

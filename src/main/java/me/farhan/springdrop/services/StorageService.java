@@ -22,4 +22,5 @@ public interface StorageService {
     Resource loadAsResource(String filename) throws StorageFileNotFoundException;
 
     void deleteAll();
+    void delete(String fileName);
 }

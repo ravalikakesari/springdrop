@@ -11,9 +11,18 @@
     <div id="signupbox" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info">
             <div class="panel-heading">
-                <div class="panel-title">Asset</div>
+                <div class="panel-title">New Asset Form</div>
             </div>
             <div class="panel-body">
+                <div>
+                    <form method="POST" enctype="multipart/form-data" action="/assets/create">
+                        <table>
+                            <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+                            <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+                        </table>
+                    </form>
+                </div>
+
 
             </div>
         </div>
