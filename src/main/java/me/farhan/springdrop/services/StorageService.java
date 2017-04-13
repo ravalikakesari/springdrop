@@ -13,7 +13,7 @@ public interface StorageService {
 
     void init() throws StorageException;
 
-    void store(MultipartFile file) throws StorageException;
+    String store(MultipartFile file) throws StorageException;
 
     Stream<Path> loadAll() throws StorageException;
 

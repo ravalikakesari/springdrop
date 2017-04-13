@@ -33,7 +33,10 @@ public class FileSystemStorageService implements StorageService {
 
     @Override
     public void init() throws StorageException {
-        try {
+      boolean directory = Files.isDirectory(rootLocation);
+      if (directory)
+        return;
+      try {
             Files.createDirectory(rootLocation);
         } catch (IOException e) {
             throw new StorageException("Could not initialize storage", e);
@@ -41,12 +44,14 @@ public class FileSystemStorageService implements StorageService {
     }
 
     @Override
-    public void store(MultipartFile file) throws StorageException {
+    public String store(MultipartFile file) throws StorageException {
+        String fileName = "";
         try {
             if (file.isEmpty()) {
                 throw new StorageException("Failed to store empty file " + file.getOriginalFilename());
             }
             Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
+            return file.getOriginalFilename();
         } catch (IOException e) {
             throw new StorageException("Failed to store file " + file.getOriginalFilename(), e);
         }
