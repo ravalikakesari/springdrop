@@ -2,6 +2,7 @@ package me.farhan.springdrop.services;
 
 import me.farhan.springdrop.exception.StorageException;
 import me.farhan.springdrop.exception.StorageFileNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -13,12 +14,22 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 @Service
 public class FileSystemStorageService implements StorageService {
 
     private Path rootLocation;
+
+    @Value("${file.path}")
+    private String pathLocation;
+
+    @Autowired
+    public FileSystemStorageService(@Value("${file.path}") String pathLocation) throws StorageException{
+        this.rootLocation = Paths.get(pathLocation);
+        init();
+    }
 
     @Override
     public void init() throws StorageException {

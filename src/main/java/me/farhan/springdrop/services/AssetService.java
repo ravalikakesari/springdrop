@@ -15,6 +15,11 @@ public class AssetService {
     private StorageService storageService;
 
     public void saveFile(MultipartFile file){
+      try {
+        storageService.store(file);
+      }catch (Exception e){
+
+      }
     }
 
 
