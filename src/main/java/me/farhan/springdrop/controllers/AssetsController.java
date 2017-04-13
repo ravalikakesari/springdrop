@@ -28,17 +28,12 @@ public class AssetsController {
     @Autowired
     private AssetService assetService;
 
-    @Autowired
-    private AuthenticationFacade authentication;
+
 
     @GetMapping
     public String index(Model model) {
-        CurrentUser currentUser = authentication.currentUser();
-        List<Asset> assets = null;
-        if (currentUser != null){
-            assets = assetService.getAssets(currentUser.getUser());
-        }
-
+        List<Asset> assets = assetService.getAssets();
+        model.addAttribute("assets",assets);
         return "assets/index";
     }
 
