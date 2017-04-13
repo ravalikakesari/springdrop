@@ -22,8 +22,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Farhan</td>
+
+                    <tr th:each="asset : ${assets}">
+                        <td th:text="${asset.fileName}">NID</td>
+
                         <td>
                             <a role="button" class="btn btn-primary btn-circle">Show</a>
                             <a role="button" class="btn btn-warning btn-circle">Edit</a>

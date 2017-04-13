@@ -16,6 +16,10 @@ public class Asset {
   @NotNull
   private String fileName;
 
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "user_id")
+  private User user;
+
   public Long getId() {
     return id;
   }
@@ -31,4 +35,21 @@ public class Asset {
   public void setFileName(String fileName) {
     this.fileName = fileName;
   }
+
+  @OneToMany(cascade = CascadeType.ALL)
+  @JoinColumn(name = "user_id")
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+  @Override
+  public String toString() {
+    return super.toString();
+  }
+
+
 }

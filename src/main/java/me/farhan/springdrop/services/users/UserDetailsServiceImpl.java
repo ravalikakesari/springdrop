@@ -1,6 +1,7 @@
 package me.farhan.springdrop.services.users;
 
 import me.farhan.springdrop.domain.entities.User;
+import me.farhan.springdrop.domain.user.CurrentUser;
 import me.farhan.springdrop.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -34,10 +35,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         boolean credentialsNonExpired = true;
         boolean accountNonLocked = true;
 
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
-                enabled, accountNonExpired,
-                credentialsNonExpired, accountNonLocked,
-                getAuthorities(Arrays.asList("ROLE_USER")));
+        return new CurrentUser(user,getAuthorities(Arrays.asList("ROLE_USER")));
     }
 
     private static List<GrantedAuthority> getAuthorities(List<String> roles) {

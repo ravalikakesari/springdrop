@@ -3,6 +3,7 @@ package me.farhan.springdrop.domain.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name = "users",schema = "public")
@@ -24,6 +25,9 @@ public class User {
     @Column(name = "password")
     @NotNull
     private String password;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user",fetch = FetchType.EAGER)
+    private List<Asset> assets;
 
     public Long getId() {
         return id;
@@ -57,4 +61,11 @@ public class User {
         this.email = email;
     }
 
+    public List<Asset> getAssets() {
+        return assets;
+    }
+
+    public void setAssets(List<Asset> assets) {
+        this.assets = assets;
+    }
 }
