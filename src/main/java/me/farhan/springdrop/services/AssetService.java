@@ -42,8 +42,7 @@ public class AssetService {
 
 
   public List<Asset> getAssets() {
-    User user = currentUser();
-    return user.getAssets();
+    return  assetRepository.findByUser(currentUser());
   }
 
   private User currentUser(){

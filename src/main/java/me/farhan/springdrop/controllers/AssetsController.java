@@ -28,8 +28,6 @@ public class AssetsController {
     @Autowired
     private AssetService assetService;
 
-
-
     @GetMapping
     public String index(Model model) {
         List<Asset> assets = assetService.getAssets();
