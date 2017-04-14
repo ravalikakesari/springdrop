@@ -21,7 +21,6 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = "assets")
-
 public class AssetsController {
     private final static Log logger = LogFactory.getLog(AssetsController.class);
 
