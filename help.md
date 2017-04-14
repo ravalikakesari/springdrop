@@ -3,3 +3,4 @@
 * https://github.com/spring-guides/gs-uploading-files/blob/master/complete/src/main/resources/templates/uploadForm.html
 * http://www.codejava.net/java-ee/servlet/java-file-upload-example-with-servlet-30-api
 * https://code.tutsplus.com/tutorials/build-a-dropbox-like-file-sharing-site-with-ruby-on-rails--net-17940
+* http://viralpatel.net/blogs/hibernate-self-join-annotations-one-to-many-mapping/
