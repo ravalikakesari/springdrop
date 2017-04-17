@@ -42,11 +42,11 @@ public class AssetService {
 
 
   public List<Asset> getAssets() {
-    return  assetRepository.findByUser(currentUser());
+    return assetRepository.findByUser(currentUser());
   }
 
-  private User currentUser(){
-   return authentication.currentUser().getUser();
+  private User currentUser() {
+    return authentication.currentUser().getUser();
   }
 
 }

@@ -5,7 +5,7 @@ import me.farhan.springdrop.domain.user.CurrentUser;
 import org.springframework.security.core.Authentication;
 
 public interface AuthenticationFacade {
-    Authentication getAuthentication();
+  Authentication getAuthentication();
 
-    CurrentUser currentUser();
+  CurrentUser currentUser();
 }

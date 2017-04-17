@@ -51,5 +51,4 @@ public class Asset {
     return super.toString();
   }
 
-
 }
