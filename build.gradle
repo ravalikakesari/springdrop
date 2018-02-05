@@ -37,5 +37,6 @@ dependencies {
 	compile("org.webjars:bootstrap:3.3.6")
 	compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile "org.projectlombok:lombok:1.16.16"
 
 }

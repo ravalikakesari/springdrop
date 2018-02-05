@@ -24,7 +24,7 @@
                     <tbody>
 
                     <tr th:each="asset : ${assets}">
-                        <td th:text="${asset.fileName}">NID</td>
+                        <td><a th:text="${asset.fileName}" th:href="@{'/assets/files/' + ${asset.fileName}}"></a></td>
 
                         <td>
                             <a role="button" class="btn btn-primary btn-circle">Show</a>

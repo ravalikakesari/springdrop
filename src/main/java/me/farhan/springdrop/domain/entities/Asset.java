@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "assets", schema = "public")
-public class Asset {
+public class Asset extends AbstractTimestampEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

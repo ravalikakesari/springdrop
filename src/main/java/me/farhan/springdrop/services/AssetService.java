@@ -5,6 +5,7 @@ import me.farhan.springdrop.domain.entities.User;
 import me.farhan.springdrop.repositories.AssetRepository;
 import me.farhan.springdrop.services.users.AuthenticationFacade;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -30,6 +31,10 @@ public class AssetService {
     } catch (Exception e) {
 
     }
+  }
+
+  public Resource loadAsResource(final String fileName) throws Exception{
+    return storageService.loadAsResource(fileName);
   }
 
   private void saveFile(final String fileName) {
