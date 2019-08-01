@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+
+          rel="stylesheet" media="screen"/>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/js/bootstrap.min.js"
+
+          rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.2.1/jquery.min.js">
+
+    </script>
+</head>
+<body>
+
+<!-- Navbar -->
+<div th:fragment="header">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#" th:href="@{/}">SpringDrop</a>
+            </div>
+            <div sec:authorize="isAuthenticated()">
+
+                <div sec:authorize="hasAnyAuthority('ADMIN')">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="#" th:href="@{/admin/users}">Users</a></li>
+                        <li><a href="#" th:href="@{/admin/unions}">Unions</a></li>
+                    </ul>
+                </div>
+
+                <div sec:authorize="hasAnyAuthority('ROLE_USER')">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="#" th:href="@{/assets}">Assets</a></li>
+                    </ul>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+
+                        <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                            <span id="span" sec:authentication="name">Current User</span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Profile</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#" th:href="@{/logout}"><span id="span">Logout</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <div sec:authorize="!isAuthenticated()">
+                <div>
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="#" th:href="@{/login}">login</a></li>
+                        <li><a href="#" th:href="@{/users/register}">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

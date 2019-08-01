@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<div class="container">
+    <div id="signupbox" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Asset</div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr th:each="asset : ${assets}">
+                        <td><a th:text="${asset.fileName}" th:href="@{'/assets/files/' + ${asset.fileName}}"></a></td>
+
+                        <td>
+                            <a role="button" class="btn btn-primary btn-circle">Show</a>
+                            <a role="button" class="btn btn-warning btn-circle">Edit</a>
+                            <a role="button" class="btn btn-danger btn-circle">Delete</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <a th:href="@{/assets/new}" role="button" class="btn btn-primary">
+                    NEW
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
